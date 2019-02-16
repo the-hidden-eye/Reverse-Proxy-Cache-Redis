@@ -1,6 +1,6 @@
 # Reverse-Proxy Cache Redis
 
-Implementation of a reverse proxy that caches the database in Redis memory. Background update when the cache expires and scalar activity is some of the differentials.
+Implementation of a reverse proxy that caches the database in Redis memory. Background update when the cache expires and scalable is some of the differentials.
 
 ### Prerequisites
 
