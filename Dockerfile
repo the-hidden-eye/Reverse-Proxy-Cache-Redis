@@ -1,4 +1,4 @@
-FROM golang:1.19
+FROM golang:1.12
 
 # Set destination for COPY
 WORKDIR /app
@@ -6,7 +6,10 @@ WORKDIR /app
 # Download Go modules
 #COPY go.mod go.sum ./
 #RUN go mod download
-RUN go install github.com/go-redis/redis@latest
+RUN go mod init github.com/the-hidden-eye/Reverse-Proxy-Cache-Redis
+#RUN go get github.com/go-redis/redis/v8
+RUN go get github.com/go-redis/redis
+#RUN go install https://github.com/go-redis/redis@latest
 # Copy the source code. Note the slash at the end, as explained in
 # https://docs.docker.com/reference/dockerfile/#copy
 COPY *.go ./
