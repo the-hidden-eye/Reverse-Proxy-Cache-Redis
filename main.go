@@ -47,8 +47,16 @@ func prepare() {
 }
 
 func handleGet(w http.ResponseWriter, r *http.Request) {
-	fullURL := r.URL.Path + "?" + r.URL.RawQuery
-
+	//fullURL := r.URL.Path + "?" + r.URL.RawQuery
+	fullURL := r.URL.Path
+    if(r.URL.RawQuery!="") {
+		fullURL = fullURL + "?" + r.URL.RawQuery
+	}	
+	if(r.URL.Path=="/healthcheck") {
+		w.WriteHeader(http.StatusOK)
+		fmt.Fprint(w, "Server is healthy " + fullURL)
+		return
+	}
 	Info.Printf("Requested '%s'\n", fullURL)
 	if r.Method != "GET" {
 		response, err := gatewayRequest(fullURL, r)
