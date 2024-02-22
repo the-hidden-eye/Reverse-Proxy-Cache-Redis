@@ -6,7 +6,7 @@ WORKDIR /app
 # Download Go modules
 #COPY go.mod go.sum ./
 #RUN go mod download
-
+RUN go get -u github.com/go-redis/redis
 # Copy the source code. Note the slash at the end, as explained in
 # https://docs.docker.com/reference/dockerfile/#copy
 COPY *.go ./
