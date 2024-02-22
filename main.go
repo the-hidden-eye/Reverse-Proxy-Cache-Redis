@@ -118,7 +118,7 @@ func handleGet(w http.ResponseWriter, r *http.Request) {
 }
 
 func gatewayRequest(fullURL string, r *http.Request) (*http.Response, error) {
-	URL := getEnv("GATEWAY_HOST", "http://localhost:1333") + fullURL
+	URL := getEnv("GATEWAY_HOST",getEnv("GATEWAY_REQUEST", "http://localhost:1333")) + fullURL
 	req, _ := http.NewRequest(r.Method, URL, r.Body)
 	copyHeaders(req.Header, r.Header)
 	response, err := client.Do(req)

@@ -1,0 +1,5 @@
+docker build . -t cgp && (
+docker run --rm --hostname redis --name redis redis &
+sleep 1
+docker run --rm -it -e PORT=8080 -e GATEWAY_REQUEST=http://monip.org -e REDIS_HOST=$(docker inspect redis|jq -r .[].NetworkSettings.IPAddress) -e REDIS_PORT=6379 -p 8080:8080 cgp
+)

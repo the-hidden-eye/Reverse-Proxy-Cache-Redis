@@ -25,4 +25,5 @@ RUN CGO_ENABLED=0 GOOS=linux go build -o /dockercacheproxy
 #EXPOSE 8080
 
 # Run
-CMD ["/dockercacheproxy"]
+#CMD ["/dockercacheproxy"]
+CMD sh -c "export ; /dockercacheproxy 2>&1 |grep -e Init -e Ready -e Requested -e Creating -e panic"

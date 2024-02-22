@@ -10,7 +10,7 @@ Implementation of a reverse proxy that caches the database in Redis memory. Back
 ### Configuration
 
 All configuration is made by environment variables:
-* **GATEWAY_REQUEST**: Host gataway. Ex: http://localhost:1333
+* **GATEWAY_HOST**: Host gataway. Ex: http://localhost:1333
 * **PORT**: Port to exposes reverse-proxy. Ex: 80
 * **REDIS_HOST**: Host of redis. Ex: localhost
 * **REDIS_PORT**: Port of redis. Ex: 6379
